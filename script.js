@@ -94,3 +94,24 @@ generateBtn.addEventListener('click',function(){
         indicator.style.backgroundColor="green";
     }
 })
+
+function randomlyGenerateUpperCase(){
+    const string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const index = Math.floor(Math.random()*100 % 26);
+    console.log(string[index]);
+}
+function randomlyGenerateLowerCase(){
+    const string = "abcdefghijhlmnopqrstuvwxyz";
+    const index = Math.floor(Math.random()*100 % 26);
+    console.log(string[index]);
+}
+function randomlyGenerateNumber(){
+    const string = "0123456789";
+    const index = Math.floor(Math.random()*10);
+    console.log(string[index]);
+}
+function randomlyGenerateSymbol(){
+    const string = "@#$_-.?+^";
+    const index = Math.floor(Math.random()*10);
+    console.log(string[index]);
+}
