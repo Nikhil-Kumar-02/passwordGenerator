@@ -1,0 +1,7 @@
+.strengthColor{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgb(135, 142, 135);
+    box-shadow: 0 0 0 3px rgb(240, 240, 236);
+}
