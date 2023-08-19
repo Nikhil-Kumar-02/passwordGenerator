@@ -83,6 +83,54 @@ symbolsCheck.addEventListener('click' , (event)=>{
     }
 })
 
+
+function randomlyGenerateUpperCase(){
+    const string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const index = Math.floor(Math.random()*100) % 26;
+    console.log(string[index]);
+    return string[index];
+}
+function randomlyGenerateLowerCase(){
+    const string = "abcdefghijhlmnopqrstuvwxyz";
+    const index = Math.floor(Math.random()*100) % 26;
+    console.log(string[index]);
+    return string[index];
+}
+function randomlyGenerateNumber(){
+    const string = "0123456789";
+    const index = Math.floor(Math.random()*10);
+    console.log(string[index]);
+    return string[index];
+}
+function randomlyGenerateSymbol(){
+    const string = "@#$_-.?+^&";
+    const index = Math.floor(Math.random()*10);
+    console.log(string[index]);
+    return string[index];
+}
+
+function generateRandomPassword(){
+    let generatedPassword = "";
+    while(generatedPassword.length < passwordLength){
+        const index = Math.floor(Math.random()*10) % 4;
+        if(index == 0 && uppercaseCheck.checked){
+            generatedPassword += randomlyGenerateUpperCase();
+        }
+        if(index == 1 && lowercaseCheck.checked){
+            generatedPassword += randomlyGenerateLowerCase();
+        }
+        if(index == 2 && numbersCheck.checked){
+            generatedPassword += randomlyGenerateNumber();
+        }
+        if(index == 3 && symbolsCheck.checked){
+            generatedPassword += randomlyGenerateSymbol();
+        }
+    }
+    //now we have the password of required length with selected feilds ready now we just have to display it on the textarea
+    passwordDisplay.value = generatedPassword;
+    console.log(generatedPassword);
+}
+
 generateBtn.addEventListener('click',function(){
     if(checkCount <= 1){
         indicator.style.backgroundColor="red";
@@ -93,25 +141,5 @@ generateBtn.addEventListener('click',function(){
     else{
         indicator.style.backgroundColor="green";
     }
+    generateRandomPassword();
 })
-
-function randomlyGenerateUpperCase(){
-    const string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const index = Math.floor(Math.random()*100 % 26);
-    console.log(string[index]);
-}
-function randomlyGenerateLowerCase(){
-    const string = "abcdefghijhlmnopqrstuvwxyz";
-    const index = Math.floor(Math.random()*100 % 26);
-    console.log(string[index]);
-}
-function randomlyGenerateNumber(){
-    const string = "0123456789";
-    const index = Math.floor(Math.random()*10);
-    console.log(string[index]);
-}
-function randomlyGenerateSymbol(){
-    const string = "@#$_-.?+^";
-    const index = Math.floor(Math.random()*10);
-    console.log(string[index]);
-}
