@@ -20,6 +20,7 @@ let passwordLength = 10;
 let checkCount = 1;
 uppercaseCheck.checked = 1;
 handleSlider(); 
+setIndicator("#ccc");
 //set circle strength color to grey
 
  
@@ -27,12 +28,18 @@ handleSlider();
 function handleSlider(){
     inputSlider.value = passwordLength;
     lengthDisplay.innerText = passwordLength;
+    const min = inputSlider.min;
+    const max = inputSlider.max;
+    inputSlider.style.backgroundSize = ((passwordLength - min)*100/(max-min)) + "% 100%";
+
 }
 
 function setIndicator(color){
     indicator.style.backgroundColor = color;
     //try applying shadow on your own
+    indicator.style.boxShadow = `0px 0px 12px 1px ${color}`;
 }
+
 
 function getRanInteger(min,max){
     return Math.floor(Math.random()*(max-min))+min;
@@ -137,7 +144,7 @@ generateBtn.addEventListener('click' , ()=>{
         passwordDisplay.value = "";
         passwordLength = 0;
         handleSlider();
-        setIndicator("grey");
+        setIndicator("#ccc");
         return;
     }
 
